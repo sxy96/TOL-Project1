@@ -89,12 +89,10 @@
             // player.seekTo(70,true);
             // player.playVideo();
             player.loadVideoById({'videoId':'CuOV3-H2dJA',
-                     'startSeconds':70,
-                     'endSeconds':83});
-
-            // delayPlay(18000);
-
+                     'startSeconds':70});
+            delayPlay(14000);
         }
+
         // incorrect answer: a
         if(userAnswer=='a'){
             document.getElementById('player').style['z-index']=10;
@@ -102,12 +100,10 @@
             // player.seekTo(88,true);
             // player.playVideo();
             player.loadVideoById({'videoId':'CuOV3-H2dJA',
-                     'startSeconds':88,
-                     'endSeconds':113});
-
-        // delayPlay(25000);
-
+                     'startSeconds':88});
+            delayPlay(26000);
         }
+
         // incorrect answer: c
         if(userAnswer=='c'){
             document.getElementById('player').style['z-index']=10;
@@ -117,23 +113,21 @@
             player.loadVideoById({'videoId':'CuOV3-H2dJA',
                      'startSeconds':116,
                      'endSeconds':139});
-
-          // delayPlay(28000);
+            delayPlay(23500);
         }
-        // incorrect answer: d
 
+        // incorrect answer: d
         if(userAnswer=='d'){
             document.getElementById('player').style['z-index']=10;
             document.getElementById('player').style['-webkit-transform']='translateZ(0)';
             // player.seekTo(142,true);
             // player.playVideo();
             player.loadVideoById({'videoId':'CuOV3-H2dJA',
-                     'startSeconds':141,
-                     'endSeconds':163});
+                     'startSeconds':141});
+            delayPlay(24500);
         }
+       }
 
-        delayPlay(23000);
-      }
 
       function delayPlay(time) {
         setTimeout(function () {
