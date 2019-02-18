@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Mirror</title>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel = "stylesheet" type = "text/css" href="tol.css">
+</head>
+  <body>
+
+<style>
+#hint{position:absolute;left:30px;top:30px;width:960px;height:540px;background-image: url("hint.jpg");;z-index:-1;}
+#question{position:absolute;left:30px;top:30px;width:960px;height:540px;background-image: url("quiz.jpg");;z-index:-1;}
+#player{position:absolute;left:30px;top:30px;width:960px;height:540px;z-index:1;}
+</style>
+    <!-- 1. The <iframe> (and video player) will replace this <div> tag. -->
+    <div id="player"></div>
+
+    <!-- <iframe width="651" height="366" src="https://www.youtube.com/embed/CuOV3-H2dJA" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> -->
+
+    <div id="question">
+      <font color="red">
+      <p id='optiona'><input type="radio"  name="1" value="a" /></p>
+      <p id='optionb'><input type="radio"  name="1" value="b" /></p>
+      <p id='optionc'><input type="radio"  name="1" value="c" /></p>
+      <p id='optiond'><input type="radio"  name="1" value="d" /></p>
+      </font>
+      <button id="buttonsubmit" class="btn btn-primary btn-lg" type="button" onclick="feedback()">Submit</button>
+      <button id="buttonhint" class="btn btn-primary btn-lg" type="button" onclick="hint()">Hint</button>
+    </div>
+
+    <div id="hint">
+      <button type="button" id="backtoquestion"class="btn btn-primary btn-lg" onclick="backToQuestion()">Back to question</button>
+    </div>
+
+    <script src="jquery.js"></script>
+    <script>
+      // 2. This code loads the IFrame Player API code asynchronously.
+      var tag = document.createElement('script');
+
+      tag.src = "https://www.youtube.com/iframe_api";
+      var firstScriptTag = document.getElementsByTagName('script')[0];
+      firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+
+      // 3. This function creates an <iframe> (and YouTube player)
+      //    after the API code downloads.
+      var player;
+      function onYouTubeIframeAPIReady() {
+        player = new YT.Player('player', {
+          height: '960',
+          width: '540',
+          videoId: 'CuOV3-H2dJA',
+          events: {
+            'onReady': onPlayerReady,
+            'onStateChange': onPlayerStateChange
+          }
+        });
+      }
+
+      // 4. The API will call this function when the video player is ready.
+      function onPlayerReady(event) {
+        event.target.playVideo();
+      }
+
+      // 5. The API calls this function when the player's state changes.
+      //    The function indicates that when playing a video (state=1),
+      //    the player should play for six seconds and then stop.
+      var done = false;
+      function onPlayerStateChange(event) {
+        if (event.data == YT.PlayerState.PLAYING && !done) {
+          setTimeout(stopVideo, 2000);
+          done = true;
+        }
+      }
+      function stopVideo() {
+        player.pauseVideo();
+        // document.getElementById('player').id = 'question';
+        document.getElementById('player').style['z-index']=-10;
+        document.getElementById('player').style['-webkit-transform']='translateZ(0)';
+        $("#hint").hide();
+      }
+      // pull up feedbacks according to learner's answer
+      function feedback(){
+        userAnswer=$('input:radio[name="1"]:checked').val();
+        // correct answer: b
+        if(userAnswer=='b'){
+            document.getElementById('player').style['z-index']=10;
+            document.getElementById('player').style['-webkit-transform']='translateZ(0)';
+            // player.seekTo(70,true);
+            // player.playVideo();
+            player.loadVideoById({'videoId':'CuOV3-H2dJA',
+                     'startSeconds':70,
+                     'endSeconds':83});
+
+            // delayPlay(18000);
+
+        }
+        // incorrect answer: a
+        if(userAnswer=='a'){
+            document.getElementById('player').style['z-index']=10;
+            document.getElementById('player').style['-webkit-transform']='translateZ(0)';
+            // player.seekTo(88,true);
+            // player.playVideo();
+            player.loadVideoById({'videoId':'CuOV3-H2dJA',
+                     'startSeconds':88,
+                     'endSeconds':113});
+
+        // delayPlay(25000);
+
+        }
+        // incorrect answer: c
+        if(userAnswer=='c'){
+            document.getElementById('player').style['z-index']=10;
+            document.getElementById('player').style['-webkit-transform']='translateZ(0)';
+            // player.seekTo(117,true);
+            // player.playVideo();
+            player.loadVideoById({'videoId':'CuOV3-H2dJA',
+                     'startSeconds':116,
+                     'endSeconds':139});
+
+          // delayPlay(28000);
+        }
+        // incorrect answer: d
+
+        if(userAnswer=='d'){
+            document.getElementById('player').style['z-index']=10;
+            document.getElementById('player').style['-webkit-transform']='translateZ(0)';
+            // player.seekTo(142,true);
+            // player.playVideo();
+            player.loadVideoById({'videoId':'CuOV3-H2dJA',
+                     'startSeconds':141,
+                     'endSeconds':163});
+        }
+
+        delayPlay(23000);
+      }
+
+      function delayPlay(time) {
+        setTimeout(function () {
+          player.loadVideoById({'videoId':'CuOV3-H2dJA',
+                 'startSeconds':168});
+        }, time);
+      }
+
+      // provide hint
+      function hint(){
+        $("#quiz").hide();
+        $("#hint").show();
+        // document.getElementById('question').id = 'hint';
+      }
+      // go back to the question
+      function backToQuestion(){
+        $("#hint").hide();
+        $("#question").show();
+        // document.getElementById('hint').id = 'question';
+      }
+    </script>
+  </body>
+</html>

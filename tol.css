@@ -1,0 +1,52 @@
+#optiona {
+  position: absolute;
+  left:35px;
+  top:200px;
+}
+#optionb {
+  position: absolute;
+  left:35px;
+  top:245px;
+}
+#optionc {
+  position: absolute;
+  left:35px;
+  top:290px;
+}
+#optiond {
+  position: absolute;
+  left:35px;
+  top:335px;
+}
+#buttonsubmit {
+  position: absolute;
+  bottom:400px;
+}
+
+#buttonhint {
+  position: absolute;
+  left:50px;
+  bottom:52px;
+  border:none;
+  padding-left:62px;
+  padding-right:62px;
+}
+
+#buttonsubmit {
+  position: absolute;
+  left:50px;
+  bottom:110px;
+  background-color: #4CAF50;
+  border: none;
+  padding-left: 50px;
+  padding-right: 50px;
+}
+
+#backtoquestion {
+    position: absolute;
+    left:40px;
+    bottom:110px;
+}
+
+
+
