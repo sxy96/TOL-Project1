@@ -16,9 +16,10 @@
     <!-- 1. The <iframe> (and video player) will replace this <div> tag. -->
     <div id="player"></div>
 
-    <!-- <iframe width="651" height="366" src="https://www.youtube.com/embed/CuOV3-H2dJA" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> -->
 
-    <div id="question">
+<!-- <iframe width="853" height="480" src="https://www.youtube.com/embed/CJzkrQTJV7I" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+ -->
+      <div id="question">
       <font color="red">
       <p id='optiona'><input type="radio"  name="1" value="a" /></p>
       <p id='optionb'><input type="radio"  name="1" value="b" /></p>
@@ -49,7 +50,7 @@
         player = new YT.Player('player', {
           height: '960',
           width: '540',
-          videoId: 'CuOV3-H2dJA',
+          videoId: 'CJzkrQTJV7I',
           events: {
             'onReady': onPlayerReady,
             'onStateChange': onPlayerStateChange
@@ -88,9 +89,9 @@
             document.getElementById('player').style['-webkit-transform']='translateZ(0)';
             // player.seekTo(70,true);
             // player.playVideo();
-            player.loadVideoById({'videoId':'CuOV3-H2dJA',
+            player.loadVideoById({'videoId':'CJzkrQTJV7I',
                      'startSeconds':70});
-            delayPlay(14000);
+            delayPlay(16000);
         }
 
         // incorrect answer: a
@@ -99,9 +100,9 @@
             document.getElementById('player').style['-webkit-transform']='translateZ(0)';
             // player.seekTo(88,true);
             // player.playVideo();
-            player.loadVideoById({'videoId':'CuOV3-H2dJA',
+            player.loadVideoById({'videoId':'CJzkrQTJV7I',
                      'startSeconds':88});
-            delayPlay(26000);
+            delayPlay(28000);
         }
 
         // incorrect answer: c
@@ -110,10 +111,10 @@
             document.getElementById('player').style['-webkit-transform']='translateZ(0)';
             // player.seekTo(117,true);
             // player.playVideo();
-            player.loadVideoById({'videoId':'CuOV3-H2dJA',
+            player.loadVideoById({'videoId':'CJzkrQTJV7I',
                      'startSeconds':116,
                      'endSeconds':139});
-            delayPlay(23500);
+            delayPlay(25000);
         }
 
         // incorrect answer: d
@@ -122,16 +123,16 @@
             document.getElementById('player').style['-webkit-transform']='translateZ(0)';
             // player.seekTo(142,true);
             // player.playVideo();
-            player.loadVideoById({'videoId':'CuOV3-H2dJA',
+            player.loadVideoById({'videoId':'CJzkrQTJV7I',
                      'startSeconds':141});
-            delayPlay(24500);
+            delayPlay(25500);
         }
        }
 
 
       function delayPlay(time) {
         setTimeout(function () {
-          player.loadVideoById({'videoId':'CuOV3-H2dJA',
+          player.loadVideoById({'videoId':'CJzkrQTJV7I',
                  'startSeconds':168});
         }, time);
       }
